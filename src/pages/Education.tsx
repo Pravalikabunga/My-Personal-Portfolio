@@ -42,10 +42,10 @@ const Education = () => (
   <div className="bg-background overflow-visible min-h-screen">
     <Navbar />
 
-    <section className="pt-40 pb-24 px-6 md:px-16 lg:px-24">
+    <section className="pt-40 pb-24 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <div className="section-badge">Education</div>
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-16">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-12 sm:mb-16">
           <BlurText text="Academic Journey" />
         </h1>
 
@@ -57,7 +57,7 @@ const Education = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="liquid-glass rounded-2xl p-8"
+              className="liquid-glass rounded-2xl p-6 sm:p-8"
             >
               <div className="flex items-start gap-4">
                 <div className="liquid-glass-strong rounded-full w-12 h-12 flex items-center justify-center shrink-0">
@@ -79,7 +79,7 @@ const Education = () => (
     </section>
 
     {/* CERTIFICATIONS */}
-    <section className="py-20 px-6 md:px-16 lg:px-24">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <h2 className="section-heading mb-12">Achievements & Certifications</h2>
         <div className="space-y-3">
@@ -90,10 +90,10 @@ const Education = () => (
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="liquid-glass rounded-xl px-6 py-4 flex items-center justify-between gap-4"
+              className="liquid-glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4"
             >
               <span className="text-foreground/80 font-body font-light text-sm">{c.title}</span>
-              <span className="text-foreground/40 font-body text-xs shrink-0">{c.date}</span>
+              <span className="text-foreground/40 font-body text-xs shrink-0 order-first sm:order-last">{c.date}</span>
             </motion.div>
           ))}
         </div>

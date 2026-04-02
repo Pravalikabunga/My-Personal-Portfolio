@@ -32,10 +32,10 @@ const Projects = () => (
   <div className="bg-background overflow-visible min-h-screen">
     <Navbar />
 
-    <section className="pt-40 pb-24 px-6 md:px-16 lg:px-24">
+    <section className="pt-40 pb-24 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-5xl mx-auto">
         <div className="section-badge">Projects</div>
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-16">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-12 sm:mb-16">
           <BlurText text="Things I've Built" />
         </h1>
 
@@ -47,7 +47,7 @@ const Projects = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="liquid-glass rounded-2xl p-8 md:p-10 group"
+              className="liquid-glass rounded-2xl p-6 sm:p-8 md:p-10 group"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="liquid-glass-strong rounded-full w-12 h-12 flex items-center justify-center shrink-0">
@@ -59,11 +59,11 @@ const Projects = () => (
                 </div>
               </div>
 
-              <p className="text-foreground/60 font-body font-light text-sm leading-relaxed mb-6 md:ml-16">
+              <p className="text-foreground/60 font-body font-light text-sm leading-relaxed mb-6 sm:ml-0 md:ml-16">
                 {p.desc}
               </p>
 
-              <div className="flex flex-wrap gap-2 md:ml-16">
+              <div className="flex flex-wrap gap-2 sm:ml-0 md:ml-16">
                 {p.tech.map((t) => (
                   <span key={t} className="liquid-glass rounded-full px-3 py-1 text-xs font-body text-foreground/70">
                     {t}

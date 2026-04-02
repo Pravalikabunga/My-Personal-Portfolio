@@ -26,17 +26,17 @@ const About = () => (
   <div className="bg-background overflow-visible min-h-screen">
     <Navbar />
 
-    <section className="pt-40 pb-24 px-6 md:px-16 lg:px-24">
+    <section className="pt-40 pb-24 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <div className="section-badge">About Me</div>
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-8">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-8">
           <BlurText text="Pravalika Bunga" />
         </h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-foreground/60 font-body font-light text-base md:text-lg max-w-2xl leading-relaxed"
+          className="text-foreground/60 font-body font-light text-sm sm:text-base max-w-2xl leading-relaxed"
         >
           Aspiring Full Stack Developer and UI/UX Designer with internship experience in web development and design. Passionate about building scalable applications, creating intuitive user interfaces, and applying modern tools to deliver impactful digital solutions.
         </motion.p>
@@ -44,10 +44,10 @@ const About = () => (
     </section>
 
     {/* SKILLS */}
-    <section className="py-20 px-6 md:px-16 lg:px-24">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <h2 className="section-heading mb-12">Technical Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {techSkills.map((s, i) => (
             <motion.div
               key={s.cat}
@@ -55,7 +55,7 @@ const About = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="liquid-glass rounded-2xl p-5"
+              className="liquid-glass rounded-2xl p-4 sm:p-5"
             >
               <h3 className="text-sm font-body font-semibold text-foreground mb-1">{s.cat}</h3>
               <p className="text-foreground/60 font-body font-light text-sm">{s.items}</p>
@@ -66,12 +66,12 @@ const About = () => (
     </section>
 
     {/* INTERESTS */}
-    <section className="py-20 px-6 md:px-16 lg:px-24">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <h2 className="section-heading mb-12">Areas of Interest</h2>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {interests.map((item) => (
-            <span key={item} className="liquid-glass rounded-full px-5 py-2.5 text-sm font-body font-light text-foreground/80">
+            <span key={item} className="liquid-glass rounded-full px-3 sm:px-5 py-2 sm:py-2.5 text-sm font-body font-light text-foreground/80">
               {item}
             </span>
           ))}
@@ -80,12 +80,12 @@ const About = () => (
     </section>
 
     {/* SOFT SKILLS */}
-    <section className="py-20 px-6 md:px-16 lg:px-24">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <h2 className="section-heading mb-12">Soft Skills</h2>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {["Self-learning", "Leadership", "Adaptability", "Work Ethic", "Creativity"].map((s) => (
-            <span key={s} className="liquid-glass-strong rounded-full px-5 py-2.5 text-sm font-body font-medium text-foreground">
+            <span key={s} className="liquid-glass-strong rounded-full px-3 sm:px-5 py-2 sm:py-2.5 text-sm font-body font-medium text-foreground">
               {s}
             </span>
           ))}

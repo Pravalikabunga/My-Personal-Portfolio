@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlurText from "@/components/BlurText";
 import { Mail, Phone, Github, Linkedin, ArrowUpRight, Send, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 const contactSchema = z.object({
@@ -34,19 +33,20 @@ const Contact = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from("contact_submissions").insert({
-        name: data.name,
-        email: data.email,
-        subject: data.subject || null,
-        message: data.message,
-      });
-
-      if (error) throw error;
-
-      toast.success("Message sent successfully! I'll get back to you soon.");
+      // Create mailto link with pre-filled data
+      const subject = data.subject ? `Portfolio Contact: ${data.subject}` : "Portfolio Contact Form Submission";
+      const body = `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
+      
+      const mailtoLink = `mailto:bungapravalika07@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      toast.success("Opening your email client... Please send the email to complete the submission.");
       reset();
-    } catch {
-      toast.error("Failed to send message. Please try again.");
+    } catch (error) {
+      toast.error("Failed to open email client. Please try again or email directly.");
+      console.error("Contact form error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -59,12 +59,12 @@ const Contact = () => {
       value: "bungapravalika07@gmail.com",
       href: "mailto:bungapravalika07@gmail.com",
     },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 8522839675",
-      href: "tel:+918522839675",
-    },
+    // {
+    //   icon: Phone,
+    //   label: "Phone",
+    //   value: "+91 8522839675",
+    //   href: "tel:+918522839675",
+    // },
     {
       icon: Linkedin,
       label: "LinkedIn",
@@ -83,29 +83,29 @@ const Contact = () => {
     <div className="bg-background overflow-visible min-h-screen">
       <Navbar />
 
-      <section className="pt-40 pb-24 px-6 md:px-16 lg:px-24">
+      <section className="pt-40 pb-24 px-4 sm:px-6 md:px-16 lg:px-24">
         <div className="max-w-5xl mx-auto">
           <div className="section-badge">Contact</div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading italic text-foreground tracking-tight leading-[0.9] mb-8">
             <BlurText text="Let's Connect" />
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-foreground/60 font-body font-light text-base max-w-lg mb-16"
+            className="text-foreground/60 font-body font-light text-sm sm:text-base max-w-lg mb-12 sm:mb-16"
           >
             I'm always open to new opportunities, collaborations, and conversations. Feel free to reach out through the form or any channel below.
           </motion.p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
                 <div>
                   <label className="text-foreground/40 font-body text-xs mb-1.5 block">Name</label>
                   <input
@@ -156,14 +156,14 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="liquid-glass-strong rounded-full px-8 py-3 font-body font-medium text-sm text-foreground flex items-center gap-2 hover:bg-foreground/[0.05] transition-colors disabled:opacity-50"
+                  className="liquid-glass-strong rounded-full px-6 sm:px-8 py-3 font-body font-medium text-sm text-foreground flex items-center gap-2 hover:bg-foreground/[0.05] transition-colors disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <Loader2 className="w-4 h-4 animate-spin" />
                   ) : (
                     <Send className="w-4 h-4" />
                   )}
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Opening Email..." : "Send Message"}
                 </button>
               </form>
             </motion.div>
@@ -180,7 +180,7 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.1 }}
-                  className="liquid-glass rounded-2xl p-6 flex items-center gap-4 group hover:bg-foreground/[0.02] transition-colors"
+                  className="liquid-glass rounded-2xl p-4 sm:p-6 flex items-center gap-4 group hover:bg-foreground/[0.02] transition-colors"
                 >
                   <div className="liquid-glass-strong rounded-full w-12 h-12 flex items-center justify-center shrink-0">
                     <c.icon className="w-5 h-5 text-foreground" />

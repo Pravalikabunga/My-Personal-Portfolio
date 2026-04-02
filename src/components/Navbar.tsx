@@ -16,7 +16,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+    <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-3 sm:px-4">
       <div className="liquid-glass rounded-full px-2 py-2 flex items-center gap-1 max-w-4xl w-full">
         <Link to="/" className="font-heading italic text-foreground text-xl px-3 shrink-0">
           PB
@@ -57,7 +57,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden fixed top-16 left-4 right-4 liquid-glass-strong rounded-2xl p-4 flex flex-col gap-2 z-50">
+        <div className="md:hidden fixed top-16 left-3 sm:left-4 right-3 sm:right-4 liquid-glass-strong rounded-2xl p-4 flex flex-col gap-2 z-50">
           {navLinks.map((link) => (
             <Link
               key={link.to}
