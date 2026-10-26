@@ -26,7 +26,7 @@ const skills = [
 const partners = ["React", "Node.js", "Python", "MongoDB", "Figma"];
 
 const stats = [
-  { value: "5+", label: "Projects shipped" },
+  { value: "10+", label: "Projects shipped" },
   { value: "7.5", label: "CGPA" },
   { value: "1yr", label: "Industry experience" },
   { value: "6+", label: "Certifications" },
