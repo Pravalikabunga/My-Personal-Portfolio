@@ -1,2 +1,2 @@
 # Here is my Personal Portfolio....
-You can view my Portfolio by [clicking here](https://pravalika-bunga.vercel.app/)
+A responsive personal portfolio built with React and TypeScript. It presents my profile, education, work experience, projects, and contact information through a set of animated, client-side routed pages. Want to see the demo ??? [clicking here](https://pravalika-bunga.vercel.app/)
