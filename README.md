@@ -1,3 +1,2 @@
-# Welcome to your Lovable project
-
-TODO: Document your project here
+# Here is my Personal Portfolio....
+You can view my Portfolio by [clicking here](https://pravalika-bunga.vercel.app/)
